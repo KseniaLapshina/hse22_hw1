@@ -80,14 +80,31 @@ multiqc -o multiqc_trimmed fastqc_trimmed
 ![image](https://user-images.githubusercontent.com/114621114/193098349-ee8f52c2-9d34-4e25-b2ce-9e72227bb30f.png)
 ![image](https://user-images.githubusercontent.com/114621114/193098494-250b3fd6-2227-4530-9e91-d7e35faa46db.png)
 
-
-
-
 Для подрезанных чтений
 
+![image](https://user-images.githubusercontent.com/114621114/193101806-5bd0263a-4901-4965-a679-8fbec88de54b.png)
+![image](https://user-images.githubusercontent.com/114621114/193101887-3ec34d13-0440-4909-899c-cb625c5dd69f.png)
+![image](https://user-images.githubusercontent.com/114621114/193101970-542dd206-786f-4260-b181-dd29ec46594c.png)
+![image](https://user-images.githubusercontent.com/114621114/193102103-14ade78f-242f-499c-a6b2-268b8b09c126.png)
+![image](https://user-images.githubusercontent.com/114621114/193102227-11270c37-d104-47cf-aff9-489c4caf78ab.png)
 
+![image](https://user-images.githubusercontent.com/114621114/193102357-4a452a0c-b173-46a0-9fb1-e712d78a7079.png)
+![image](https://user-images.githubusercontent.com/114621114/193102555-b057bc9b-a5ce-4205-961c-d913751fc030.png)
+![image](https://user-images.githubusercontent.com/114621114/193102638-46bc579e-3fc4-4f5f-8eb8-c3663c37a7b2.png)
+![image](https://user-images.githubusercontent.com/114621114/193102729-9685dd11-76a0-4a2a-98c1-93998705e8dd.png)
+![image](https://user-images.githubusercontent.com/114621114/193102798-9a62b64b-caf2-4f46-8ba0-271ec3b2822e.png)
 
+![image](https://user-images.githubusercontent.com/114621114/193102966-de40d68c-2b24-45fe-9e85-ee9f0f8435d3.png)
+![image](https://user-images.githubusercontent.com/114621114/193103042-893d38ad-b3c7-4908-806b-6547213a23b3.png)
+![image](https://user-images.githubusercontent.com/114621114/193103132-1e9fcc44-38a0-4ce3-b341-2e665fc9c254.png)
+![image](https://user-images.githubusercontent.com/114621114/193103218-a040522d-4c47-4fc4-a6d5-d3bf8a344cc5.png)
+![image](https://user-images.githubusercontent.com/114621114/193103309-58d04bab-f63a-479e-8971-75de36f7806d.png)
 
+![image](https://user-images.githubusercontent.com/114621114/193103472-ec8aac2b-16b4-4fef-98b0-4a3cb8518934.png)
+![image](https://user-images.githubusercontent.com/114621114/193103595-bd606fd8-c1fb-4dde-9672-b7416f426d14.png)
+![image](https://user-images.githubusercontent.com/114621114/193103669-1301864f-0d3a-46e7-88cc-f08b23661ff9.png)
+![image](https://user-images.githubusercontent.com/114621114/193103748-31befe29-77a9-4853-bb2d-30f681f7039a.png)
+![image](https://user-images.githubusercontent.com/114621114/193103873-3fefa93e-e844-4470-afb4-ee08d69a3f03.png)
 
 #### Отчёты multiQC
 Для исходных чтений
@@ -101,4 +118,16 @@ multiqc -o multiqc_trimmed fastqc_trimmed
 
 Для подрезанных чтений
 
+![image](https://user-images.githubusercontent.com/114621114/193104058-c773b1e8-e47f-417e-b061-c011c1ee0ffc.png)
+![image](https://user-images.githubusercontent.com/114621114/193104872-351a7d2a-5b0f-451c-86aa-04b49b8c5a4b.png)
+![image](https://user-images.githubusercontent.com/114621114/193104179-4b0bfd53-d759-4153-b1c2-7ea2a3bda37f.png)
+![image](https://user-images.githubusercontent.com/114621114/193104377-a983cf33-fb31-40b4-a90d-e2814529008b.png)
+![image](https://user-images.githubusercontent.com/114621114/193104559-7ec67c6d-1f28-46a9-ae4d-03a9ae8ccf14.png)
+![image](https://user-images.githubusercontent.com/114621114/193104663-7f5f0991-f620-4eb9-b35f-7738c9d2c6f4.png)
 
+
+
+#### Собраны контиги из подрезанных чтений с помощью программы platanus assemble.
+```bash
+platanus assemble –o Pxut –f ./DRR02167[34]_[12].fastq –t 16 –m 128 2> assemble.log
+```
