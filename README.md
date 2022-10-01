@@ -141,7 +141,7 @@ platanus scaffold -o Pxut -c Pxut_contig.fa -b Pxut_contigBubble.fa -IP1 pairede
 ```bash
 platanus gap_close -o Pxut -c Pxut_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose.log
 ```
-#### Удалены подрезанные .fastq файлы, полученные с помощью программы seqtk.
+#### Удалены подрезанные .fastq файлы.
 ```bash
 rm pairedend1.fastq.trimmed
 rm pairedend2.fastq.trimmed
