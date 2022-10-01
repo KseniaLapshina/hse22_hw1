@@ -127,7 +127,25 @@ multiqc -o multiqc_trimmed fastqc_trimmed
 
 
 
-#### Собраны контиги из подрезанных чтений с помощью программы platanus assemble.
+#### Собраны контиги из подрезанных чтений типа paired-end с помощью программы platanus assemble.
 ```bash
-platanus assemble –o Pxut –f ./DRR02167[34]_[12].fastq –t 16 –m 128 2> assemble.log
+platanus assemble -o Pxut -f pairedend1.fastq.trimmed pairedend2.fastq.trimmed 2> assemble.log
 ```
+#### 
+#### Собраны скаффолды из контигов и подрезанных чтений с помощью программы platanus scaffold.
+```bash
+platanus scaffold -o Pxut -c Pxut_contig.fa -b Pxut_contigBubble.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> scaffold.log
+```
+#### 
+#### Уменьшено количество гэпов с помощью программы platanus gap_close.
+```bash
+platanus gap_close -o Pxut -c Pxut_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose.log
+```
+#### Удалены подрезанные .fastq файлы, полученные с помощью программы seqtk.
+```bash
+rm pairedend1.fastq.trimmed
+rm pairedend2.fastq.trimmed
+rm matepair1.fastq.int_trimmed
+rm matepair2.fastq.int_trimmed
+```
+####
