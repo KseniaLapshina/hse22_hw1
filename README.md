@@ -154,3 +154,25 @@ rm matepair2.fastq.int_trimmed
 ```
 #### Полученные после gap_close скаффолды проанализированы в Google Colab(https://colab.research.google.com/drive/1RrKm-795RLJVtQB2ktgKCqxVmrvySYH1?usp=sharing).
 ![image](https://user-images.githubusercontent.com/114621114/193430482-bcc5a3d6-dd00-4271-8ecd-daaeaff71b22.png)
+
+## Бонусная часть
+#### Совершаем аналогичную процедуру, взяв количество чтений, составляющее 75% от взятого для основной работы. Выбраны 3,75 миллионов чтений типа paired-end и 1.125 миллиона чтений типа mate-pairs.
+```bash
+seqtk sample -s1114 oil_R1.fastq 3750000 > pairedend1.fastq
+seqtk sample -s1114 oil_R2.fastq 3750000 > pairedend2.fastq
+seqtk sample -s1114 oilMP_S4_L001_R1_001.fastq 1125000 > matepair1.fastq
+seqtk sample -s1114 oilMP_S4_L001_R2_001.fastq 1125000 > matepair2.fastq
+platanus_trim pairedend*
+platanus_internal_trim matepair*
+rm pairedend1.fastq
+rm pairedend2.fastq
+rm matepair1.fastq
+rm matepair2.fastq
+platanus assemble -o 75 -f pairedend1.fastq.trimmed pairedend2.fastq.trimmed 2> assemble75.log
+platanus scaffold -o 75 -c 75_contig.fa -b 75_contigBubble.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> scaffold75.log
+platanus gap_close -o 75 -c 75_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose75.log
+rm pairedend1.fastq.trimmed
+rm pairedend2.fastq.trimmed
+rm matepair1.fastq.int_trimmed
+rm matepair2.fastq.int_trimmed
+```
