@@ -131,12 +131,16 @@ multiqc -o multiqc_trimmed fastqc_trimmed
 ```bash
 platanus assemble -o Pxut -f pairedend1.fastq.trimmed pairedend2.fastq.trimmed 2> assemble.log
 ```
-#### 
+#### Полученные контиги проанализированы в Google Colab(https://colab.research.google.com/drive/1RrKm-795RLJVtQB2ktgKCqxVmrvySYH1?usp=sharing).
+![image](https://user-images.githubusercontent.com/114621114/193430418-4c747bc0-2987-41c7-b1e6-730bd2ffccd8.png)
+
 #### Собраны скаффолды из контигов и подрезанных чтений с помощью программы platanus scaffold.
 ```bash
 platanus scaffold -o Pxut -c Pxut_contig.fa -b Pxut_contigBubble.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> scaffold.log
 ```
-#### 
+#### Полученные скаффолды проанализированы в Google Colab(https://colab.research.google.com/drive/1RrKm-795RLJVtQB2ktgKCqxVmrvySYH1?usp=sharing).
+![image](https://user-images.githubusercontent.com/114621114/193430434-fb4d32a3-d81b-4050-82d8-afb6331b2e6c.png)
+
 #### Уменьшено количество гэпов с помощью программы platanus gap_close.
 ```bash
 platanus gap_close -o Pxut -c Pxut_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose.log
@@ -148,4 +152,5 @@ rm pairedend2.fastq.trimmed
 rm matepair1.fastq.int_trimmed
 rm matepair2.fastq.int_trimmed
 ```
-####
+#### Полученные после gap_close скаффолды проанализированы в Google Colab(https://colab.research.google.com/drive/1RrKm-795RLJVtQB2ktgKCqxVmrvySYH1?usp=sharing).
+![image](https://user-images.githubusercontent.com/114621114/193430482-bcc5a3d6-dd00-4271-8ecd-daaeaff71b22.png)
