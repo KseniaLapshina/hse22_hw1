@@ -227,3 +227,5 @@ rm matepair2.fastq.int_trimmed
 ![image](https://user-images.githubusercontent.com/114621114/193574444-23040bae-ad1a-4874-b40a-1c73fbf7941e.png)
 ![image](https://user-images.githubusercontent.com/114621114/193574558-8031d16e-bf0d-4d76-85a7-63ad74b64234.png)
 ![image](https://user-images.githubusercontent.com/114621114/193574650-74d98e20-427d-40e6-8bb8-e97bd245a0ce.png)
+
+#### С уменьшением количества чтений упала финальная длина самого длинного скаффолда, упал финальный N50, уменьшилось количество гэпов для самого длинного скаффолда и уменьшилась их общая длина.
