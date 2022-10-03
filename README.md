@@ -176,3 +176,54 @@ rm pairedend2.fastq.trimmed
 rm matepair1.fastq.int_trimmed
 rm matepair2.fastq.int_trimmed
 ```
+![image](https://user-images.githubusercontent.com/114621114/193563502-8bdeca10-72c0-4802-9b54-a1390141d83d.png)
+![image](https://user-images.githubusercontent.com/114621114/193563569-4d95da7a-bebc-4a53-9f62-d9a24a00f094.png)
+![image](https://user-images.githubusercontent.com/114621114/193563620-b2f3989d-4f8b-4d82-b39c-8a57ac5e72cb.png)
+
+#### Совершаем аналогичную процедуру, взяв количество чтений, составляющее 50% от взятого для основной работы. Выбраны 2,5 миллионов чтений типа paired-end и 0.75 миллиона чтений типа mate-pairs.
+```bash
+seqtk sample -s1114 oil_R1.fastq 2500000 > pairedend1.fastq
+seqtk sample -s1114 oil_R2.fastq 2500000 > pairedend2.fastq
+seqtk sample -s1114 oilMP_S4_L001_R1_001.fastq 750000 > matepair1.fastq
+seqtk sample -s1114 oilMP_S4_L001_R2_001.fastq 750000 > matepair2.fastq
+platanus_trim pairedend*
+platanus_internal_trim matepair*
+rm pairedend1.fastq
+rm pairedend2.fastq
+rm matepair1.fastq
+rm matepair2.fastq
+platanus assemble -o 50 -f pairedend1.fastq.trimmed pairedend2.fastq.trimmed 2> assemble50.log
+platanus scaffold -o 50 -c 50_contig.fa -b 50_contigBubble.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> scaffold50.log
+platanus gap_close -o 50 -c 50_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose50.log
+rm pairedend1.fastq.trimmed
+rm pairedend2.fastq.trimmed
+rm matepair1.fastq.int_trimmed
+rm matepair2.fastq.int_trimmed
+```
+![image](https://user-images.githubusercontent.com/114621114/193570204-640f990e-1671-468c-9464-5e5c4b4020ba.png)
+![image](https://user-images.githubusercontent.com/114621114/193570363-0cfa48e8-84b8-4924-9810-dc510d844ce4.png)
+![image](https://user-images.githubusercontent.com/114621114/193570432-a8bd4b73-8d87-4ce4-9171-7912c0717de8.png)
+
+#### Совершаем аналогичную процедуру, взяв количество чтений, составляющее 25% от взятого для основной работы. Выбраны 1,25 миллионов чтений типа paired-end и 0.375 миллиона чтений типа mate-pairs.
+```bash
+seqtk sample -s1114 oil_R1.fastq 1250000 > pairedend1.fastq
+seqtk sample -s1114 oil_R2.fastq 1250000 > pairedend2.fastq
+seqtk sample -s1114 oilMP_S4_L001_R1_001.fastq 375000 > matepair1.fastq
+seqtk sample -s1114 oilMP_S4_L001_R2_001.fastq 375000 > matepair2.fastq
+platanus_trim pairedend*
+platanus_internal_trim matepair*
+rm pairedend1.fastq
+rm pairedend2.fastq
+rm matepair1.fastq
+rm matepair2.fastq
+platanus assemble -o 25 -f pairedend1.fastq.trimmed pairedend2.fastq.trimmed 2> assemble25.log
+platanus scaffold -o 25 -c 25_contig.fa -b 25_contigBubble.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> scaffold25.log
+platanus gap_close -o 25 -c 25_scaffold.fa -IP1 pairedend1.fastq.trimmed pairedend2.fastq.trimmed -OP2 matepair1.fastq.int_trimmed matepair2.fastq.int_trimmed 2> gapclose25.log
+rm pairedend1.fastq.trimmed
+rm pairedend2.fastq.trimmed
+rm matepair1.fastq.int_trimmed
+rm matepair2.fastq.int_trimmed
+```
+![image](https://user-images.githubusercontent.com/114621114/193574444-23040bae-ad1a-4874-b40a-1c73fbf7941e.png)
+![image](https://user-images.githubusercontent.com/114621114/193574558-8031d16e-bf0d-4d76-85a7-63ad74b64234.png)
+![image](https://user-images.githubusercontent.com/114621114/193574650-74d98e20-427d-40e6-8bb8-e97bd245a0ce.png)
